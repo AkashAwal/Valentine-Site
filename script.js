@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("noBtn3").textContent = config.questions.third.noBtn;
 
   createFloatingEmojis();
-  setupMusicPlayer(); // 👈 music call
+  setupMusicPlayer();
 });
 
 // QUESTIONS
@@ -37,7 +37,7 @@ function moveButton(btn) {
   btn.style.top = Math.random() * 80 + "vh";
 }
 
-// FLOATING EMOJIS 🔥
+// 💖 FLOATING EMOJIS (REAL FLOATING FIXED)
 function createFloatingEmojis() {
   const container = document.querySelector(".floating-elements");
 
@@ -48,21 +48,21 @@ function createFloatingEmojis() {
     ...config.floatingEmojis.sunflower
   ];
 
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 35; i++) {
     const span = document.createElement("span");
     span.className = "floating-emoji";
     span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
-    span.style.left = Math.random() * 100 + "%";
-    span.style.bottom = "-40px";
-    span.style.animationDuration = 6 + Math.random() * 12 + "s";
-    span.style.animationDelay = Math.random() * 5 + "s";
+    span.style.left = Math.random() * 100 + "vw";
+    span.style.top = Math.random() * 100 + "vh";
+    span.style.animationDuration = 10 + Math.random() * 15 + "s";
+    span.style.opacity = 0.8;
 
     container.appendChild(span);
   }
 }
 
-// CELEBRATION 💘
+// 💘 CELEBRATION
 function celebrate() {
   document.querySelectorAll(".question-section").forEach(q =>
     q.classList.add("hidden")
@@ -79,47 +79,22 @@ function celebrate() {
     config.celebration.emojis;
 }
 
-// 🎵 MUSIC PLAYER
+// 🎵 MUSIC PLAYER (SAFE VERSION)
 function setupMusicPlayer() {
   const musicControls = document.getElementById("musicControls");
   const musicToggle = document.getElementById("musicToggle");
   const bgMusic = document.getElementById("bgMusic");
   const musicSource = document.getElementById("musicSource");
 
-  if (!config.music.enabled || !musicControls) return;
+  if (!config.music.enabled) return;
 
   musicSource.src = config.music.musicUrl;
-  bgMusic.volume = config.music.volume || 0;
+  bgMusic.volume = config.music.volume || 0.5;
   bgMusic.load();
-
-  function fadeInMusic() {
-    const fade = setInterval(() => {
-      if (bgMusic.volume < 0.5) {
-        bgMusic.volume += config.music.fadeSpeed || 0.01;
-      } else {
-        clearInterval(fade);
-      }
-    }, 50);
-  }
-
-  if (config.music.autoplay) {
-    const playPromise = bgMusic.play();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          fadeInMusic();
-          musicToggle.textContent = config.music.stopText;
-        })
-        .catch(() => {
-          musicToggle.textContent = config.music.startText;
-        });
-    }
-  }
 
   musicToggle.addEventListener("click", () => {
     if (bgMusic.paused) {
       bgMusic.play();
-      fadeInMusic();
       musicToggle.textContent = config.music.stopText;
     } else {
       bgMusic.pause();
