@@ -336,3 +336,34 @@ h2 {
   animation-iteration-count: infinite;
   opacity: 0.9;
 }
+
+.floating-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 5;
+}
+
+.floating-emoji {
+  position: absolute;
+  animation: floatUp linear infinite;
+  opacity: 0.85;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-120vh);
+  }
+}
