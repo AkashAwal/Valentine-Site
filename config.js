@@ -62,13 +62,14 @@ const CONFIG = {
   },
 
   music: {
-    enabled: true,
-    autoplay: true,
-    musicUrl: "https://res.cloudinary.com/dncywqfpb/video/upload/v1738399057/music_qrhjvy.mp3",
-    startText: "🎵 Play Music",
-    stopText: "🔇 Stop Music",
-    volume: 0.5
-  }
-};
+  enabled: true,
+  autoplay: true,
+  musicUrl: "PASTE_MP3_LINK_HERE",
+  startText: "🎵 Play Music",
+  stopText: "🔇 Stop Music",
+  volume: 0.0, // start from zero (fade-in)
+  fadeSpeed: 0.01 // pro fade effect
+}
+
 
 window.VALENTINE_CONFIG = CONFIG;
