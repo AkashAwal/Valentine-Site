@@ -52,7 +52,8 @@ function createFloatingEmojis() {
     span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
     span.style.left = Math.random() * 100 + "%";
-    span.style.top = 100 + Math.random() * 50 + "%";
+    span.style.bottom = "-40px";
+
 
     span.style.animationDuration = 6 + Math.random() * 12 + "s";
     span.style.animationDelay = Math.random() * 5 + "s";
