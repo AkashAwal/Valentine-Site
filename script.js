@@ -1,6 +1,5 @@
 const config = window.VALENTINE_CONFIG;
 
-// Set title & text
 window.addEventListener("DOMContentLoaded", () => {
   document.title = config.pageTitle;
 
@@ -21,7 +20,9 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("noBtn3").textContent = config.questions.third.noBtn;
 
   createFloatingEmojis();
+  setupMusicPlayer();   // 👈 YE LINE ADD KI
 });
+
 
 // QUESTIONS
 function showNextQuestion(n) {
@@ -72,4 +73,53 @@ function celebrate() {
   document.getElementById("celebrationTitle").textContent = config.celebration.title;
   document.getElementById("celebrationMessage").textContent = config.celebration.message;
   document.getElementById("celebrationEmojis").textContent = config.celebration.emojis;
+}
+
+function setupMusicPlayer() {
+  const musicControls = document.getElementById("musicControls");
+  const musicToggle = document.getElementById("musicToggle");
+  const bgMusic = document.getElementById("bgMusic");
+  const musicSource = document.getElementById("musicSource");
+
+  if (!config.music.enabled) {
+    musicControls.style.display = "none";
+    return;
+  }
+
+  musicSource.src = config.music.musicUrl;
+  bgMusic.volume = config.music.volume || 0;
+  bgMusic.load();
+
+  function fadeInMusic() {
+    const fade = setInterval(() => {
+      if (bgMusic.volume < 0.5) {
+        bgMusic.volume += config.music.fadeSpeed || 0.01;
+      } else {
+        clearInterval(fade);
+      }
+    }, 50);
+  }
+
+  if (config.music.autoplay) {
+    const playPromise = bgMusic.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        fadeInMusic();
+        musicToggle.textContent = config.music.stopText;
+      }).catch(() => {
+        musicToggle.textContent = config.music.startText;
+      });
+    }
+  }
+
+  musicToggle.addEventListener("click", () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      fadeInMusic();
+      musicToggle.textContent = config.music.stopText;
+    } else {
+      bgMusic.pause();
+      musicToggle.textContent = config.music.startText;
+    }
+  });
 }
