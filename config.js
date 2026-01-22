@@ -12,11 +12,12 @@ const CONFIG = {
     // Floating emojis that appear in the background
     // Find more emojis at: https://emojipedia.org
     floatingEmojis: {
-  hearts: ['❤️', '💖', '💘', '💝'],
-  bears: ['🐻', '🧸'],
-  frogs: ['🐸'],
-  sunflower: ['🌻']
+  hearts: ["❤️", "💖", "💘", "💝"],
+  bears: ["🐻", "🧸"],
+  frog: ["🐸"],
+  sunflower: ["🌻"]
 },
+
 
 
     // Questions and answers
