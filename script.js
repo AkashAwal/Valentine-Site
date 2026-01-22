@@ -20,12 +20,14 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("noBtn3").textContent = config.questions.third.noBtn;
 
   createFloatingEmojis();
-  setupMusicPlayer();
+  setupMusicPlayer(); // 👈 music call
 });
 
 // QUESTIONS
 function showNextQuestion(n) {
-  document.querySelectorAll(".question-section").forEach(q => q.classList.add("hidden"));
+  document.querySelectorAll(".question-section").forEach(q =>
+    q.classList.add("hidden")
+  );
   document.getElementById("question" + n).classList.remove("hidden");
 }
 
@@ -35,7 +37,7 @@ function moveButton(btn) {
   btn.style.top = Math.random() * 80 + "vh";
 }
 
-// 🌈 FLOATING EMOJIS (PRO VERSION)
+// FLOATING EMOJIS 🔥
 function createFloatingEmojis() {
   const container = document.querySelector(".floating-elements");
 
@@ -46,38 +48,38 @@ function createFloatingEmojis() {
     ...config.floatingEmojis.sunflower
   ];
 
-  function spawnEmoji() {
+  for (let i = 0; i < 40; i++) {
     const span = document.createElement("span");
     span.className = "floating-emoji";
     span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
-    span.style.left = Math.random() * 100 + "vw";
+    span.style.left = Math.random() * 100 + "%";
     span.style.bottom = "-40px";
-    span.style.fontSize = 20 + Math.random() * 15 + "px";
-    span.style.animationDuration = 8 + Math.random() * 12 + "s";
+    span.style.animationDuration = 6 + Math.random() * 12 + "s";
+    span.style.animationDelay = Math.random() * 5 + "s";
 
     container.appendChild(span);
-
-    // remove after animation (memory safe)
-    setTimeout(() => span.remove(), 25000);
   }
-
-  // continuous spawn 💘
-  setInterval(spawnEmoji, 500);
 }
 
-// 💘 CELEBRATION
+// CELEBRATION 💘
 function celebrate() {
-  document.querySelectorAll(".question-section").forEach(q => q.classList.add("hidden"));
+  document.querySelectorAll(".question-section").forEach(q =>
+    q.classList.add("hidden")
+  );
+
   const c = document.getElementById("celebration");
   c.classList.remove("hidden");
 
-  document.getElementById("celebrationTitle").textContent = config.celebration.title;
-  document.getElementById("celebrationMessage").textContent = config.celebration.message;
-  document.getElementById("celebrationEmojis").textContent = config.celebration.emojis;
+  document.getElementById("celebrationTitle").textContent =
+    config.celebration.title;
+  document.getElementById("celebrationMessage").textContent =
+    config.celebration.message;
+  document.getElementById("celebrationEmojis").textContent =
+    config.celebration.emojis;
 }
 
-// 🎵 MUSIC PLAYER (PRO)
+// 🎵 MUSIC PLAYER
 function setupMusicPlayer() {
   const musicControls = document.getElementById("musicControls");
   const musicToggle = document.getElementById("musicToggle");
@@ -101,12 +103,17 @@ function setupMusicPlayer() {
   }
 
   if (config.music.autoplay) {
-    bgMusic.play().then(() => {
-      fadeInMusic();
-      musicToggle.textContent = config.music.stopText;
-    }).catch(() => {
-      musicToggle.textContent = config.music.startText;
-    });
+    const playPromise = bgMusic.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          fadeInMusic();
+          musicToggle.textContent = config.music.stopText;
+        })
+        .catch(() => {
+          musicToggle.textContent = config.music.startText;
+        });
+    }
   }
 
   musicToggle.addEventListener("click", () => {
