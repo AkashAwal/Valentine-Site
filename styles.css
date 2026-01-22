@@ -327,6 +327,9 @@ h2 {
 .floating-emoji {
   position: absolute;
   font-size: 26px;
-  animation: floatUp linear infinite;
+  bottom: -40px; /* IMPORTANT */
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   opacity: 0.9;
 }
