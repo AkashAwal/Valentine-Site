@@ -54,14 +54,17 @@ body {
     animation: float var(--float-duration) linear infinite;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(100vh) translateX(0);
-    }
-    100% {
-        transform: translateY(-100px) translateX(var(--float-distance));
-    }
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
 }
+
 
 .cute-btn {
     background: var(--button-color);
