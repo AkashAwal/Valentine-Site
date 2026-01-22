@@ -1,51 +1,49 @@
 // ============================================
-// CUSTOMIZE YOUR VALENTINE'S WEBSITE HERE
+// 💝 CUSTOMIZE YOUR VALENTINE'S WEBSITE HERE 💝
 // ============================================
 
 const CONFIG = {
 
-  valentineName: "Sanya",
+  valentineName: "Sanya 💕",
 
-  pageTitle: "Will You Be My Valentine?",
+  pageTitle: "Will You Be My Valentine? 💝",
 
   floatingEmojis: {
-  hearts: ["❤️", "💖", "💘", "💝"],
-  bears: ["🐻", "🧸"],
-  frog: ["🐸"],
-  sunflower: ["🌻"]
-},
-
-
+    hearts: ["❤️", "💖", "💘", "💝", "💞"],
+    bears: ["🐻", "🧸"],
+    frog: ["🐸"],
+    sunflower: ["🌻"]
+  },
 
   questions: {
     first: {
-      text: "Can I steal your heart for a lifetime?",
-      yesBtn: "Take it",
-      noBtn: "Not yet",
-      secretAnswer: "Its already yours"
+      text: "Can I steal your heart for a lifetime? 💖",
+      yesBtn: "Take it 🥺❤️",
+      noBtn: "Not yet 🙈",
+      secretAnswer: "It's already yours 😌❤️"
     },
     second: {
-      text: "How much do you love me?",
-      startText: "This much!",
-      nextBtn: "Next"
+      text: "How much do you love me? 🥰",
+      startText: "This much! 💕",
+      nextBtn: "Next 💘"
     },
     third: {
-      text: "Can we make this Valentines Day another memory together?",
-      yesBtn: "Yes",
-      noBtn: "No"
+      text: "Can we make this Valentine’s Day another memory together? 💖🌹",
+      yesBtn: "Yes 🥺❤️",
+      noBtn: "No 💔"
     }
   },
 
   loveMessages: {
-    extreme: "WOW thats a lot of love!",
-    high: "To infinity and beyond!",
-    normal: "And beyond!"
+    extreme: "WOOOOW you love me sooo much!! 🥰🚀💝",
+    high: "To infinity and beyond! 🚀💖",
+    normal: "And beyond! 🥰"
   },
 
   celebration: {
-    title: "With you everything feels right",
-    message: "Always us",
-    emojis: "<3 <3 <3"
+    title: "With you, everything feels right 🫶",
+    message: "Always us ❤️",
+    emojis: "❤️ 💖 💘 💝 💞 🥰"
   },
 
   colors: {
@@ -67,8 +65,8 @@ const CONFIG = {
     enabled: true,
     autoplay: true,
     musicUrl: "https://res.cloudinary.com/dncywqfpb/video/upload/v1738399057/music_qrhjvy.mp3",
-    startText: "Play Music",
-    stopText: "Stop Music",
+    startText: "🎵 Play Music",
+    stopText: "🔇 Stop Music",
     volume: 0.5
   }
 };
