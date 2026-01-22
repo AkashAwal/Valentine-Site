@@ -320,3 +320,10 @@ h2 {
     transform: scale(1.05);
     background: var(--secondary-color);
 } 
+
+.floating-emoji {
+  position: absolute;
+  font-size: 26px;
+  animation: floatUp linear infinite;
+  opacity: 0.9;
+}
