@@ -9,11 +9,12 @@ const CONFIG = {
   pageTitle: "Will You Be My Valentine?",
 
   floatingEmojis: {
-  hearts: ["\u2764", "\u1F496", "\u1F498", "\u1F49D"],
-  bears: ["\u1F43B", "\u1F9F8"],
-  frog: ["\u1F438"],
-  sunflower: ["\u1F33B"]
+  hearts: ["❤️", "💖", "💘", "💝"],
+  bears: ["🐻", "🧸"],
+  frog: ["🐸"],
+  sunflower: ["🌻"]
 },
+
 
 
   questions: {
