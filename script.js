@@ -46,18 +46,21 @@ function createFloatingEmojis() {
     ...config.floatingEmojis.sunflower
   ];
 
-  for (let i = 0; i < 35; i++) {
+  for (let i = 0; i < 40; i++) {
     const span = document.createElement("span");
     span.className = "floating-emoji";
     span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
-    span.style.left = Math.random() * 100 + "vw";
-    span.style.animationDuration = 6 + Math.random() * 10 + "s";
+    span.style.left = Math.random() * 100 + "%";
+    span.style.top = 100 + Math.random() * 50 + "%";
+
+    span.style.animationDuration = 6 + Math.random() * 12 + "s";
     span.style.animationDelay = Math.random() * 5 + "s";
 
     container.appendChild(span);
   }
 }
+
 
 // CELEBRATION 💘
 function celebrate() {
